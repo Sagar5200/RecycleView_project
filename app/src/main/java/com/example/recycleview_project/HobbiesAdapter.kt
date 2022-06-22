@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,8 +26,14 @@ class HobbiesAdapter(val context: Context, val hobbies: List<Hobby>) : RecyclerV
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        fun setData(hobby: Hobby?, pos: Int) {
-            itemView.findViewById<TextView>(R.id.txvTitle).text = hobby!!.title
-        }
+        fun setData(hobby: Hobby, position: Int) {
+            val title: TextView = itemView.findViewById(R.id.txvTitle)
+            val image: ImageView = itemView.findViewById(R.id.imgShare)
+
+            title.text=hobby.title
+            image.setImageResource(hobby.image)
     }
 }
+}
+
+
